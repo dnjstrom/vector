@@ -52,19 +52,19 @@ class Vector
 	end
 
 	def add(x, y)
-		set(self.x + x, self.y + y)
+		copy.add!(x, y)
 	end
 
 	def add!(x, y)
-		copy.add(x, y)
+		set(self.x + x, self.y + y)
 	end
 
 	def scale(scalar)
-		set(x*scalar, y*scalar)
+		copy.scale(scalar)
 	end
 
 	def scale!(scalar)
-		copy.scale(scalar)
+		set(x*scalar, y*scalar)
 	end
 
 	def set(x, y)

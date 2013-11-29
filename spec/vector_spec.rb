@@ -52,8 +52,8 @@ describe Vector do
   	vvv.length.should eq 2
   end
 
-  it 'can be modified' do
-  	@v.add(3, 4)
+  it 'can be added to' do
+  	@v.add!(3, 4)
   	@v.x.should be_within(0.0000001).of(4)
   	@v.y.should be_within(0.0000001).of(4)
   end
