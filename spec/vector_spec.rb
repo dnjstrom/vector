@@ -67,4 +67,9 @@ describe Vector do
   	@v * 10
   	@v.length.should eq 10
   end
+
+  it 'can be initialized and set at the same time' do
+    v = Vector.new(3, 4)
+    v.length.should eq 5
+  end
 end

@@ -1,10 +1,12 @@
 class Vector
 	attr_accessor :angle, :length, :mode
 
-	def initialize(mode = :deg)
+	def initialize(x=1, y=0, mode = :deg)
 		@mode = mode
 		@angle = 0
 		@length = 1
+
+		set(x, y)
 	end
 
 	def copy
