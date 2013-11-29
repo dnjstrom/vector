@@ -14,11 +14,11 @@ require 'rake'
 require 'jeweler'
 Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
-  gem.name = "vector"
+  gem.name = "Vector"
   gem.homepage = "http://github.com/Aerivan/vector"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = %Q{A simple to use 2D vector library.}
+  gem.description = %Q{A simple to use 2D vector library.}
   gem.email = "D@nielstrom.se"
   gem.authors = ["Daniel Ström"]
   # dependencies defined in Gemfile
