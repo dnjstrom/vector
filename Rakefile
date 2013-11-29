@@ -14,7 +14,7 @@ require 'rake'
 require 'jeweler'
 Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
-  gem.name = "Vector"
+  gem.name = "vector"
   gem.homepage = "http://github.com/Aerivan/vector"
   gem.license = "MIT"
   gem.summary = %Q{A simple to use 2D vector library.}
