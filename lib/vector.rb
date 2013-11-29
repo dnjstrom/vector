@@ -42,8 +42,12 @@ class Vector
 		v.copy.sub(x, y)
 	end
 
-	def *(scalar)
-		scale(scalar)
+	def *(scalar_or_vector)
+		if scalar_or_vector <= Vector
+			dot(scalar_or_vector)
+		else
+			scale(scalar)
+		end
 	end
 
 	def dot(v)
