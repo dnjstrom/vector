@@ -60,7 +60,7 @@ class Vector
 	end
 
 	def scale(scalar)
-		copy.scale(scalar)
+		copy.scale!(scalar)
 	end
 
 	def scale!(scalar)

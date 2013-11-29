@@ -64,8 +64,8 @@ describe Vector do
   end
 
   it 'can be multiplied with a scalar' do
-  	@v * 10
-  	@v.length.should eq 10
+  	vv = @v * 10
+  	vv.length.should eq 10
   end
 
   it 'can be initialized and set at the same time' do
