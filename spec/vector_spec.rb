@@ -25,15 +25,15 @@ describe Vector do
   	@v.set 3, 4
 
   	@v.length.should eq 5
-  	@v.angle.should be_within(0.01).of(53.13)
+  	@v.angle.should be_within(0.001).of(53.13)
   end
 
   it 'sets the vectors individual components correctly' do
   	@v.x = 3
-  	@v.x.should be_within(0.0000001).of(3)
+  	@v.x.should eq 3
 
   	@v.y = 4
-  	@v.y.should be_within(0.0000001).of(4)
+  	@v.y.should eq 4
   end
 
   it 'can turn the vector using degrees' do
@@ -54,8 +54,8 @@ describe Vector do
 
   it 'can be added to' do
   	@v.add!(3, 4)
-  	@v.x.should be_within(0.0000001).of(4)
-  	@v.y.should be_within(0.0000001).of(4)
+    @v.x.should eq 4
+  	@v.y.should eq 4
   end
 
   it 'can be normalized' do
@@ -65,6 +65,7 @@ describe Vector do
 
   it 'can be multiplied with a scalar' do
   	vv = @v * 10
+    vvv = 4 * @v
   	vv.length.should eq 10
   end
 

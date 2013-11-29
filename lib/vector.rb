@@ -18,7 +18,7 @@ class Vector
 			angle = Vector.r2d angle
 		end
 
-		@angle +=angle
+		@angle = Vector.constrain_angle(@angle + angle)
 		self
 	end
 
@@ -39,16 +39,20 @@ class Vector
 	end
 
 	def -(v)
-		v.copy.add(-x, -y)
+		v.copy.sub(x, y)
 	end
 
-	def *(v)
-		if v.class <= Vector
-			# dot product, maybe should change
-			@length * v.length * Math.cos(Vector.r2d(@angle - v.angle))
-		else # scaling with a number
-			scale(v)
-		end
+	def *(scalar)
+		scale(scalar)
+	end
+
+	def dot(v)
+		@length * v.length * Math.cos(Vector.r2d(@angle - v.angle))
+	end
+
+	def angle_to(v)
+		angle_to = angle - v.angle
+		constrain_angle(angle_to, 180)
 	end
 
 	def add(x, y)
@@ -57,6 +61,14 @@ class Vector
 
 	def add!(x, y)
 		set(self.x + x, self.y + y)
+	end
+
+	def sub(x, y)
+		copy.sub!(x, y)
+	end
+
+	def sub!(x, y)
+		set(self.x - x, self.y - y)
 	end
 
 	def scale(scalar)
@@ -69,7 +81,7 @@ class Vector
 
 	def set(x, y)
 		@length = Math.sqrt(x*x + y*y)
-		@angle = Vector.r2d Math.atan2(y, x)
+		@angle = (Vector.r2d Math.atan2(y, x)).round(14)
 		self
 	end
 
@@ -78,7 +90,7 @@ class Vector
 	end
 
 	def x
-		@length * Math.cos(Vector.d2r(@angle))
+		(@length * Math.cos(Vector.d2r(@angle))).round(14)
 	end
 
 	def x=(newX)
@@ -86,13 +98,27 @@ class Vector
 	end
 
 	def y
-		@length * Math.sin(Vector.d2r(@angle))
+		(@length * Math.sin(Vector.d2r(@angle))).round(14)
 	end
 
 	def y=(newY)
 		set x, newY
 	end
 
+
+	def coerce(other)
+		return self, other
+	end
+
+	def self.constrain_angle(angle, max=360)
+		if angle < 0
+			angle = Vector.constrain_angle(angle + max)
+		elsif angle >= max
+			angle = Vector.constrain_angle(angle - max)
+		end
+
+		angle
+	end
 
 	def self.r2d(rad)
 		rad * (180/Math::PI)
