@@ -22,6 +22,14 @@ class Vector
 		self
 	end
 
+	def flipX
+		set(-x, y)
+	end
+
+	def flipY
+		set(x, -y)
+	end
+
 	def normalize
 		@length = 1
 	end
